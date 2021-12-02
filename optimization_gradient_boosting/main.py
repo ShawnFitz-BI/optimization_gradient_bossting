@@ -32,8 +32,11 @@ if __name__ == '__main__':
         models={
             'custom_tree': DecisionTree(n_jobs=-2),
             'sklearn_tree': DecisionTreeRegressor(),
-            'custom_gbm': GBoost(n_trees=10, learning_rate=0.01, max_depth=10, n_jobs=-2),
-            'sklearn_gbm': GradientBoostingRegressor(random_state=19, n_estimators=10, max_depth=10, learning_rate=0.01)
+            'custom_gbm_10': GBoost(n_trees=10, learning_rate=0.01, max_depth=10, n_jobs=-2),
+            'sklearn_gbm_10': GradientBoostingRegressor(random_state=19, n_estimators=10, max_depth=10, learning_rate=0.01),
+            'custom_gbm_50': GBoost(n_trees=50, learning_rate=0.01, max_depth=5, n_jobs=-2),
+            'sklearn_gbm_50': GradientBoostingRegressor(random_state=19, n_estimators=50, max_depth=5, learning_rate=0.01),
+            'test_no_change': GBoost(n_trees=50, learning_rate=0.01, max_depth=5, validation_fraction=0.2, n_iter_no_change=4, tol=10.0, n_jobs=-2)
         },
         X=X,
         y=y,
